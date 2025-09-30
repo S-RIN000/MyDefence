@@ -5,14 +5,14 @@ namespace MyDefence
     /// <summary>
     /// Enermy를 관리하는 클래스
     /// </summary>
-    public class Enermy : MonoBehaviour
+    public class Enemy : MonoBehaviour
     {
         #region 필드 선언부
         //이동 목표 지점 변수 선언 및 초기화
         //private Vector3 targetPosition = new Vector3(-2f, 1f, -17f);
 
         //이동 목표 위치를 가지고 있는 오브젝트 
-        private Transform target;   
+        public Transform target;   
 
         //이동 속도를 저장하는 변수를 선언
         public float speed = 5f;

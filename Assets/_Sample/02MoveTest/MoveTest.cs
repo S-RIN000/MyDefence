@@ -65,7 +65,7 @@ namespace Sample
 
             //Space.Self, Space.World (글로벌, 로컬 축 차이)
             //transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.World);
-            transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.Self);
+            transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.Self);      //space이용하면 도착시 흔들리지 않음
         }
     }
 }
