@@ -19,7 +19,7 @@ namespace MyDefence
             //필드 초기화
             //WayPoint 배열 요소수 생성 [이 트랜스폼이 가지고 있는 자식의 갯수만큼]
             points = new Transform[this.transform.childCount];
-            Debug.Log($"WayPoint의 갯수: {this.transform.childCount}개");
+            //Debug.Log($"WayPoint의 갯수: {this.transform.childCount}개");
             for (int i = 0; i < points.Length; i++)
             {
                 //WayPoint의 transform을 순서대로 가져와서 배열에 저장하기

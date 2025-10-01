@@ -437,7 +437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 311542191}
   m_Layer: 0
-  m_Name: Finish
+  m_Name: End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1620,7 +1620,7 @@ GameObject:
   - component: {fileID: 1896460578}
   - component: {fileID: 1896460577}
   m_Layer: 0
-  m_Name: FinishGp
+  m_Name: EndGp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2182,6 +2182,10 @@ MonoBehaviour:
   partToRotate: {fileID: 771287814}
   rotateSpeed: 10
   attackRange: 5
+  searchTimer: 0.2
+  fireTimer: 1
+  bulletPrefab: {fileID: 2159444724099582876, guid: f7766404d29776146a84b484c04ddacf, type: 3}
+  firePoint: {fileID: 1383777910}
 --- !u!1 &5860802701483861455
 GameObject:
   m_ObjectHideFlags: 0

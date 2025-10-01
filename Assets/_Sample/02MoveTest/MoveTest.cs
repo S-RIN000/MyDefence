@@ -59,7 +59,7 @@ namespace Sample
 
             //이동 방향 구하기 : (목표지점 - 현재지점) OR (도착위치 - 현재위치)
             //dir.normalized : 단위백터, 길이가 1인 백터, 정규화된 백터
-            //dir.magnitude : 백터의 (실제)길이, 크기
+            //dir.magnitude : 백터의 (실제)길이, 크기, 두 백터간의 거리
             //Vector3 dir = target.position - this.transform.position;
             //this.transform.Translate(dir.normalized * Time.deltaTime * speed, Space.Self);  //dir.normalized :이게 내가 갈 방향
 

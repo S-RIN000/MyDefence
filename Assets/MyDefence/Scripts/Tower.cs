@@ -25,6 +25,14 @@ namespace MyDefence
         public float searchTimer = 0.2f;
         private float countdown = 0;        //타이머를 구현하고자 한다면 변수 2개가 기본이다~
 
+        //발사 타이머
+        public float fireTimer = 1f;
+        private float fireCountdown = 0f;
+
+        //총알 프리팹 오브젝트
+        public GameObject bulletPrefab;
+        public Transform firePoint;
+
         #endregion
 
         #region Unity Event Method
@@ -47,21 +55,26 @@ namespace MyDefence
             }
             countdown -= Time.deltaTime;
 
-            
-
-
+            //가장 가까운 적을 못 찾았으면
             //NULL이면 RETURN 밑을 실행하지 말라
             if (target == null) return;
-            
-                //타겟을 향해서 partToRocate 회전
-                //타겟위치 - 현재위치
-                Vector3 dir = target.transform.position - this.transform.position;
-                Quaternion lookRocation = Quaternion.LookRotation(dir);
-                Quaternion lerpRotation = Quaternion.Lerp(partToRotate.rotation, lookRocation, Time.deltaTime * rotateSpeed);
-                Vector3 eulerValue = lerpRotation.eulerAngles;
 
-                //y축으로만 회전하기
-                partToRotate.rotation = Quaternion.Euler(0f, eulerValue.y, 0f);
+            LockOn();
+
+            
+            //가장 가까운 적에게 1초마다 총알을 발사
+            fireCountdown += Time.deltaTime;
+            if ( fireCountdown >= fireTimer )
+            {
+
+                //타이머 기능
+                //Debug.Log("발사");
+                Shoot();
+
+                //타이머 초기화
+                fireCountdown = 0f;
+            }
+
             
         }
 
@@ -71,8 +84,6 @@ namespace MyDefence
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(this.transform.position, attackRange);
         }
-
-
 
         #endregion
 
@@ -112,7 +123,34 @@ namespace MyDefence
 
         }
 
+        //타겟을 향해 터렛 헤드 돌리기
+        void LockOn()
+        {
+            //타겟을 향해서 partToRocate 회전
+            //타겟위치 - 현재위치
+            Vector3 dir = target.transform.position - this.transform.position;
+            Quaternion lookRocation = Quaternion.LookRotation(dir);
+            Quaternion lerpRotation = Quaternion.Lerp(partToRotate.rotation, lookRocation, Time.deltaTime * rotateSpeed);
+            Vector3 eulerValue = lerpRotation.eulerAngles;
 
+            //y축으로만 회전하기
+            partToRotate.rotation = Quaternion.Euler(0f, eulerValue.y, 0f);
+        }
+
+        //발사 
+
+        void Shoot()
+        {
+
+            //총구 위치(firePoint)에 탄환객체 생성(instiate)하기
+            GameObject bullotGo = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);  //총알은 총구의 앞부분으로 나아가야 하기 때문에 쿼터니언 사용x
+            Bullet bullet = bullotGo.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+                bullet.SetTarget(target.transform); //target은 게임오브젝트, 매개변수는 트랜스폼
+            }
+            
+        }
 
         #endregion
 
