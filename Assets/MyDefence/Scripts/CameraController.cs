@@ -109,7 +109,7 @@ namespace MyDefence
 
             //마우스 스크롤값을 입력받아 줌인, 줌아웃 (높이 조절) 기능 구현
             float scroll = Input.GetAxis("Mouse ScrollWheel");
-            Debug.Log($"Mouse ScrollWheel: {scroll}");
+            //Debug.Log($"Mouse ScrollWheel: {scroll}");
 
             Vector3 upDownPosition = this.transform.position;
             //y축 이동만 연산 - 보정 계수 1000 적용
