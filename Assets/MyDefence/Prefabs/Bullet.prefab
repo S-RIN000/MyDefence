@@ -122,4 +122,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 70
-  ImpactPrefab: {fileID: 6655421504544452515, guid: 2a7c44a3a26c8134fb4a1b0b65de3770, type: 3}
+  impactPrefab: {fileID: 6655421504544452515, guid: 2a7c44a3a26c8134fb4a1b0b65de3770, type: 3}

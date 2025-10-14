@@ -19,10 +19,10 @@ namespace MyDefence
             BuildManager.Instance.SetTurretToBuild(BuildManager.Instance.machineGunPrefab);
         }
 
-        public void SelectAnotherTower()
+        public void RocketTower()
         {
-            Debug.Log("다른 타워 선택하였습니다!");
-            BuildManager.Instance.SetTurretToBuild(BuildManager.Instance.anotherTowerPrefab);
+            //Debug.Log("다른 타워 선택하였습니다!");
+            BuildManager.Instance.SetTurretToBuild(BuildManager.Instance.rocketTowerPrefab);
         }
 
         #endregion

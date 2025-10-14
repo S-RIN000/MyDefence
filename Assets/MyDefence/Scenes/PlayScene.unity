@@ -2370,7 +2370,7 @@ GameObject:
   - component: {fileID: 2079943090}
   - component: {fileID: 2079943089}
   m_Layer: 5
-  m_Name: AnotherTower
+  m_Name: RocketTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2463,7 +2463,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2106376948}
         m_TargetAssemblyTypeName: MyDefence.BuildMenu, Assembly-CSharp
-        m_MethodName: SelectAnotherTower
+        m_MethodName: RocketTower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2493,7 +2493,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6aa2dc02e7274054ea3a4423bf6050da, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9663d6aa5a9656d4fb6b82fe385fff5c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2666,7 +2666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   machineGunPrefab: {fileID: 1758473230991500749, guid: 578e3bbc97dd0b34091772701a62b752, type: 3}
-  anotherTowerPrefab: {fileID: 1758473230991500749, guid: d42c2f7cd5600774e8c581cd03be9aea, type: 3}
+  rocketTowerPrefab: {fileID: 8825031796253195111, guid: bdafa15564eb7ef4483ee9630694d04a, type: 3}
 --- !u!4 &2118848396
 Transform:
   m_ObjectHideFlags: 0

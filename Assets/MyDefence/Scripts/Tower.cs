@@ -80,9 +80,11 @@ namespace MyDefence
 
         private void OnDrawGizmosSelected()
         {
-            //타워중심으로부터 attackRange 범위 확인
+            //타워 중심으로부터 attackRange 범위 확인
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(this.transform.position, attackRange);
+
+           
         }
 
         #endregion
@@ -138,17 +140,20 @@ namespace MyDefence
         }
 
         //발사 
-
         void Shoot()
         {
 
             //총구 위치(firePoint)에 탄환객체 생성(instiate)하기
             GameObject bullotGo = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);  //총알은 총구의 앞부분으로 나아가야 하기 때문에 쿼터니언 사용x
+
             Bullet bullet = bullotGo.GetComponent<Bullet>();
             if (bullet != null)
             {
                 bullet.SetTarget(target.transform); //target은 게임오브젝트, 매개변수는 트랜스폼
             }
+
+            //지금처럼 유도탄이 아닌, 직선으로 발사되는 탄환이라면 이 식이 들어가야한다 (노리던 타겟이 사라져서 탄환 잉여가 남아있는 것 방지용)
+            //Destroy(bullotGo, 3f);
             
         }
 
