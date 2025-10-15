@@ -8,6 +8,22 @@ namespace MyDefence
     /// </summary>
     public class BuildMenu : MonoBehaviour
     {
+        #region Variables
+        //BuildManager(싱글톤) 객체 선언
+        private BuildManager buildManager;      //반복되는 긴 문장을 변수로 정리..
+
+        //타워 리스트
+        public TowerBlueprint machineGun;
+        public TowerBlueprint rocketTower;
+        #endregion
+
+        #region Unity Event Method
+        private void Start()
+        {
+            //참조 (객체 초기화)
+            buildManager = BuildManager.Instance;
+        }
+        #endregion
 
         #region Custom Method
         //머신건 버튼 선택시 호출되는 함수
@@ -16,13 +32,13 @@ namespace MyDefence
             //Debug.Log("머신건 타워를 선택하였습니다!!");
 
             //turretToBuild = machineGunPrefab;
-            BuildManager.Instance.SetTurretToBuild(BuildManager.Instance.machineGunPrefab);
+            buildManager.SetTurretToBuild(machineGun);
         }
 
         public void RocketTower()
         {
             //Debug.Log("다른 타워 선택하였습니다!");
-            BuildManager.Instance.SetTurretToBuild(BuildManager.Instance.rocketTowerPrefab);
+            buildManager.SetTurretToBuild(rocketTower);
         }
 
         #endregion

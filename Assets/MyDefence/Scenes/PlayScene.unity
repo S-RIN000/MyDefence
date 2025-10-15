@@ -2203,6 +2203,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2336410662289539051, guid: 66c1611a6c5d2fa4fbe4605d3977f2c9, type: 3}
   m_PrefabInstance: {fileID: 1716850104}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1765009484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1765009486}
+  - component: {fileID: 1765009485}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1765009485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765009484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8587c4c0083771c4681e0b324a147433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMoney: 400
+--- !u!4 &1765009486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765009484}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1896460576
 GameObject:
   m_ObjectHideFlags: 0
@@ -2636,6 +2681,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918614a3a51d8f741bea96cab3566cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  machineGun:
+    prefab: {fileID: 1758473230991500749, guid: 578e3bbc97dd0b34091772701a62b752, type: 3}
+    cost: 100
+    offsetPos: {x: 0, y: 0, z: 0}
+  rocketTower:
+    prefab: {fileID: 8825031796253195111, guid: bdafa15564eb7ef4483ee9630694d04a, type: 3}
+    cost: 250
+    offsetPos: {x: 0, y: 0, z: 0}
 --- !u!1 &2118848394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2665,8 +2718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b8597aa07370e42b3deb405d52cdf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  machineGunPrefab: {fileID: 1758473230991500749, guid: 578e3bbc97dd0b34091772701a62b752, type: 3}
-  rocketTowerPrefab: {fileID: 8825031796253195111, guid: bdafa15564eb7ef4483ee9630694d04a, type: 3}
 --- !u!4 &2118848396
 Transform:
   m_ObjectHideFlags: 0
@@ -2884,3 +2935,4 @@ SceneRoots:
   - {fileID: 332192917}
   - {fileID: 2145814535}
   - {fileID: 2118848396}
+  - {fileID: 1765009486}
