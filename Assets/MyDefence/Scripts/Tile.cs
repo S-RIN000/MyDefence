@@ -29,12 +29,15 @@ namespace MyDefence
         private Color startColor;
 
         //마우스가 들어가면 바뀌는 메터리얼
-        public Material hoverMaterial;  
+        public Material hoverMaterial;
+        //건설 비용 부족시 바뀌는 메터리얼
+        public Material moneyMaterial;
         //타일의 원래 메터리얼
         private Material startMaterial;
 
-        //타워 건설
-        public GameObject towerPrefab;
+        //타워 건설 효과
+        public GameObject buildEffectPrefab;
+       
 
         #endregion
 
@@ -91,9 +94,19 @@ namespace MyDefence
                 return;
             }
 
-            //Debug.Log("마우스가 들어간다 - 지정색");
-            //renderer.material.color = hoverColor;
-            renderer.material = hoverMaterial;
+            //건설비용 체크
+            if(buildManager.HasBuildCost)
+            {
+                //Debug.Log("마우스가 들어간다 - 지정색");
+                //renderer.material.color = hoverColor;
+                renderer.material = hoverMaterial;
+            }
+            else
+            {
+                renderer.material = moneyMaterial;
+            }
+
+
         }
 
         private void OnMouseExit()
@@ -120,15 +133,18 @@ namespace MyDefence
             //PlayerStats.UseMoney(건설비용);
             PlayerStats.UseMoney(blueprint.cost);
 
-
+            //타워 건설
             tower = Instantiate(blueprint.prefab, this.transform.position + blueprint.offsetPos , Quaternion.identity);
+
+            //건설 이펙트 효과 - 생성 후 2초 뒤 킬
+            GameObject effectGo =  Instantiate(buildEffectPrefab, this.transform.position, Quaternion.identity);
+            Destroy(effectGo, 2f);
 
             //towerToBuild = null; //건설 후 다시 건설하지 못하게 한다
             buildManager.SetTurretToBuild(null);
 
             Debug.Log($"건설하고 남은 소지금: {PlayerStats.Money}");
         }
-
 
         #endregion
 

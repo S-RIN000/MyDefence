@@ -11,15 +11,31 @@ namespace MyDefence
         //소지금
         public static int money;
 
+        //초기 소지금
+        [SerializeField]
+        private int startMoney = 400;
+
+        //게임 Life
+        private static int lives;
+
+        //초기 소지 생명 갯수
+        [SerializeField]
+        private int startLife = 10;
+        #endregion
+
+        #region Property
         //소지금 읽기 전용 속성
         public static int Money
         {
             get { return money; }
         }
 
-        //초기 소지금
-        [SerializeField]
-        private int startMoney = 400;
+        //생명 읽기 전용 속성
+        public static int Lives
+        {
+            get { return lives; }
+        }
+
         #endregion
 
         #region Unity Event Method
@@ -27,7 +43,8 @@ namespace MyDefence
         {
             //초기화
             //게임을 다운로드 받고 처음 시작하면 초기 소지금 지급
-            money = startMoney;
+            money = startMoney;     //초기 소지금 지급
+            lives = startLife;      //초기 생명 갯수 지급
             Debug.Log($"초기 소지금 {startMoney}골드를 지급하였습니다");
         }
         #endregion
@@ -57,6 +74,23 @@ namespace MyDefence
         public static bool HasMoney(int amount)
         {
             return money >= amount;
+        }
+
+        //Life 벌기
+        public static void AddLives(int amount)
+        {
+            lives += amount;
+        }
+
+        //Life 쓰기
+        public static void UseLives(int amount = 1)     //생명은 1씩 깎이니까...
+        {
+            lives -= amount;
+
+            if (lives <= 0)
+            {
+                lives = 0;
+            }
         }
 
         #endregion 
