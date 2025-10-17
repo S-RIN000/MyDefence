@@ -10,6 +10,10 @@ namespace MyDefence
         #region Variables
         //게임오버 체크 변수
         private bool isGameOver = false;
+
+        //치트 체크 변수
+        [SerializeField]
+        private bool isCheating = false;
         #endregion
 
         #region Unity Event Method
@@ -23,6 +27,12 @@ namespace MyDefence
             {
                 GameOver();
             }
+
+            //치트키
+            if(Input.GetKeyDown(KeyCode.M))
+            {
+                ShowMeTheMoney();
+            }
         }
         #endregion
 
@@ -32,6 +42,24 @@ namespace MyDefence
             Debug.Log("Game Over");
 
             isGameOver = true;
+        }
+
+        //치트키
+        void ShowMeTheMoney()
+        {
+            //치트 체크
+            if(isCheating ==  false)
+            {
+                return;
+            }
+
+            //10만 골드 지급
+            PlayerStats.AddMoney(100000);
+        }
+
+        void LevelCheat()
+        {
+            //level++; 
         }
         #endregion
     }

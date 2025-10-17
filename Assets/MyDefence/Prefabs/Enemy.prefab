@@ -485,6 +485,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 5
+  deathEffectPrefab: {fileID: 3054693109307119754, guid: f9e0740dd815f104e867abd601afc38e, type: 3}
+  startHealth: 100
 --- !u!65 &6845565832394507159
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -504,8 +506,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.0773153, y: 1.4022994, z: 0.99135566}
-  m_Center: {x: -0.027155638, y: 0.20114997, z: 0.004322171}
+  m_Size: {x: 2.0773153, y: 1.0440525, z: 1.0105798}
+  m_Center: {x: -0.027155638, y: 0.38027343, z: -0.005289972}
 --- !u!1 &8250277728312872673
 GameObject:
   m_ObjectHideFlags: 0

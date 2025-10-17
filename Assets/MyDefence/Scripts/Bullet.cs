@@ -16,11 +16,14 @@ namespace MyDefence
 
         //타격 이펙트 프리팹 오브젝트
         public GameObject impactPrefab;
+
+        //공격 데미지
+        [SerializeField]
+        private float attackDamage = 50f;
         #endregion
 
         #region Unity Event Method
-
-        
+            
 
         private void Update()
         {
@@ -64,7 +67,7 @@ namespace MyDefence
         {
             //타격위치에 이펙트를 생성(instiate)한 후 3초뒤에 타격 이펙트 오브젝트 kill
             GameObject effectGo = Instantiate(impactPrefab, this.transform.position, Quaternion.identity);
-            Destroy(effectGo, 3f);
+            Destroy(effectGo , 3f);
 
             //Debug.Log("Hit Enemy!!!");
             //타격당한 적에게 데미지 주기
@@ -75,10 +78,17 @@ namespace MyDefence
         }
 
         //타격당한 적에게 데미지 주기
-        protected void Damage(Transform enemy)
+        protected void Damage(Transform _target)
         {
             //타겟 킬
-            Destroy(enemy.gameObject);
+            //Destroy(_target.gameObject);
+
+            //_target에게 데미지를 준다 (attackDamage만큼)
+            Enemy enemy =_target.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(attackDamage);
+            }
         }
 
         #endregion 
