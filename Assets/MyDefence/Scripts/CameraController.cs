@@ -54,20 +54,20 @@ namespace MyDefence
             //a키를 입력하면 왼쪽으로 이동
             //d키를 입력하면 오른쪽으로 이동
 /*
-            if(Input.GetKey(KeyCOde.W))
+            if(Input.GetKey(KeyCode.W))
             {
                 this.transform.position += Vector3.forward * Time.deltaTime * moveSpeed;
                 this.transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed, Space.World);
             }
-            if (Input.GetKey(KeyCOde.S))
+            if (Input.GetKey(KeyCode.S))
             {
                 this.transform.position += Vector3.back * Time.deltaTime * moveSpeed;
             }
-            if (Input.GetKey(KeyCOde.A))
+            if (Input.GetKey(KeyCode.A))
             {
                 this.transform.position += Vector3.left * Time.deltaTime * moveSpeed;
             }
-            if (Input.GetKey(KeyCOde.D))
+            if (Input.GetKey(KeyCode.D))
             {
                 this.transform.position += Vector3.right * Time.deltaTime * moveSpeed;
             }
