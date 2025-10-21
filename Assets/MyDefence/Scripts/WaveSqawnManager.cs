@@ -1,6 +1,7 @@
-using UnityEngine;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
 
 namespace MyDefence
 {
@@ -68,6 +69,11 @@ namespace MyDefence
         IEnumerator SpawnWave()
         {
             waveCount++;
+
+            //웨이브 카운트 (웨이브에 따라서 라운드가 1씩 증가한다)
+            PlayerStats.Rounds++;
+
+            //0.5초 지연하여 enemy 스폰
             for (int i = 0; i < waveCount; i++)
             {
                 EnermySpawn();
