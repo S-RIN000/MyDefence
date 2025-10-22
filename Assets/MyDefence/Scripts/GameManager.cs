@@ -55,7 +55,9 @@ namespace MyDefence
 
             //효과 : vfx, sfx ...
             //패널티 적용
- 
+
+            gameOverUI.SetActive(true);
+
         }
 
         //치트키
