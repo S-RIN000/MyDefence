@@ -165,6 +165,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 285642997}
+  upgradeCostText: {fileID: 1648629525}
+  upgradeButton: {fileID: 456303881}
+  sellCostText: {fileID: 1412513309}
 --- !u!1001 &37290379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5359,7 +5362,7 @@ GameObject:
   - component: {fileID: 1412513310}
   - component: {fileID: 1412513309}
   m_Layer: 5
-  m_Name: CostText
+  m_Name: SellCostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6243,7 +6246,7 @@ GameObject:
   - component: {fileID: 1648629526}
   - component: {fileID: 1648629525}
   m_Layer: 5
-  m_Name: CostText
+  m_Name: UpgradeCostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7529,14 +7532,14 @@ MonoBehaviour:
   rocketTower:
     prefab: {fileID: 8825031796253195111, guid: bdafa15564eb7ef4483ee9630694d04a, type: 3}
     cost: 250
-    upgradePrefab: {fileID: 0}
-    upgradeCost: 0
+    upgradePrefab: {fileID: 2022556905607021308, guid: e178f7f2f242b6e43bdb30d063c42bd8, type: 3}
+    upgradeCost: 350
     offsetPos: {x: 0, y: 0, z: 0}
   laserTower:
     prefab: {fileID: 24005898685827955, guid: 73bc4e95e6730914f94ce0b8cf57df83, type: 3}
     cost: 350
-    upgradePrefab: {fileID: 0}
-    upgradeCost: 0
+    upgradePrefab: {fileID: 8821992766564065310, guid: ef21115b90cb64841a0ba6316d76732d, type: 3}
+    upgradeCost: 500
     offsetPos: {x: 0, y: 0, z: 0}
 --- !u!1 &2118155278
 GameObject:

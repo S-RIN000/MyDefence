@@ -17,5 +17,12 @@ namespace MyDefence
         public int upgradeCost;             //건설된 타워의 업그레이드 비용
 
         public Vector3 offsetPos;   //타워 건설시 위치 조정 값
+
+        //판매 가격 : 빌드 비용의 반값
+        public int GetSellCost()
+        {
+            return cost / 2;
+            
+        }
     }
 }

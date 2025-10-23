@@ -27,6 +27,7 @@ namespace MyDefence
         //private float damageCountdown = 0f;
 
         //이동속도 40%감속
+        [SerializeField]
         private float slowRate = 0.4f;
         #endregion
 

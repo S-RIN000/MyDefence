@@ -121,8 +121,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5736cfe84fe20ce479565f447d454cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    upgradePrefab: {fileID: 0}
+    upgradeCost: 0
+    offsetPos: {x: 0, y: 0, z: 0}
   hoverColor: {r: 0.3443396, g: 1, b: 0.39292547, a: 0}
   hoverMaterial: {fileID: 2100000, guid: 33c6445e8ad78fc488eb7f6b866dee2b, type: 2}
   moneyMaterial: {fileID: 2100000, guid: 707288256abb0fc4fbd7986a05d4763c, type: 2}
   buildEffectPrefab: {fileID: 1033675557006218962, guid: 4cb50ce149de7c7458b776cef3f69195, type: 3}
-  towerPrefab: {fileID: 1758473230991500749, guid: 578e3bbc97dd0b34091772701a62b752, type: 3}
+  sellTowerPrefab: {fileID: 6021751156865560740, guid: 4863a918bd5289742822807e2301abcd, type: 3}
+  isUpgradeCompleted: 0
