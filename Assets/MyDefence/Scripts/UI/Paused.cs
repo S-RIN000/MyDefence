@@ -11,6 +11,12 @@ namespace MyDefence
     {
         #region Variables
         public GameObject paused;
+
+        //씬 페이더
+        public SceneFader fader;
+        //메뉴 씬 이름
+        [SerializeField]
+        private string loadToScene = "MainMenu";
         #endregion
 
         #region Unity Event Method
@@ -48,8 +54,8 @@ namespace MyDefence
         //메인메뉴를 누르면 호출
         public void MainMenu()
         {
-            Debug.Log("Go To Menu");
-
+            //Debug.Log("Go To Menu");
+            fader.FadeTo(loadToScene);
             Time.timeScale = 1f;
         }
 
@@ -57,10 +63,11 @@ namespace MyDefence
         //씬 재시작
         public void ReStart()
         {
-            Debug.Log("Run RESTART");
+            //Debug.Log("Run RESTART");
 
             string nowSceneName = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(nowSceneName);
+            //SceneManager.LoadScene(nowSceneName);
+            fader.FadeTo(nowSceneName);
 
             Time.timeScale = 1f;
         }

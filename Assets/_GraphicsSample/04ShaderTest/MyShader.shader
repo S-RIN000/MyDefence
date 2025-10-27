@@ -1,4 +1,4 @@
-Shader "Unlit/MyShader"
+Shader "Custom/MyShader"
 {
     Properties
     {
@@ -57,26 +57,73 @@ Shader "Unlit/MyShader"
     }
 }
 
+
 /*
 Lighting 종류
-1) Ambient : 주변광, 환경광 등에 나오는 빛이 오브젝트에 반사되어 나온 반사광
-2) Diffuse : 오브젝트 자신의 고유 색, 광원에 반사될 때 출력되는 가장 주된 색
+1) Ambient : 주변광, 환경광등에 나오는 빛이 오브젝트에 반사되어 나온 반사광
+2) Diffuse : 오브젝트 자신의 고유 색, 광원에 반사될때 출력되는 가장 주된 색
 3) Specular : 정 반사광, 특정 방향으로만 반사되는 빛, 하이라이트 표현
-4) Emissive : 메시 표면에서 자체적으로 방출되는 색 (티비, 모니터 화면 표현 등)
+4) Emissive : 메시 표면에서 자체적으로 방출되는 색
+
 
 Shader 프로그램
 : 화면에 출력할 픽셀의 위치와 색상을 계산하는 함수를 작성하는 것
 
 언어
-ShaderLab : Unity에서 사용하는 셰이더 스크립트 언어
+ShaderLab : 유니티에서 사용하는 셰이더 스크립트 언어
 셰이더 언어 CG / HLSL / GLSL
-CG : C For Graphics, MS와 엔비디아에서 만든 셰이딩 언어
+CG : C for Graphics, MS와 엔비디아에서 만든 셰이딩 언어
 GLSL : OpenGL에서 사용하는 셰이딩 언어 (OpenGL Shading Language)
 HLSL : 가장 유명하고 보편적으로 사용하는 언어, Unity 6에서 사용, High Level Shading Language
 
-ShaderLab 으로 작성할 수 있는 셰이더 프로그램
-: 고정 함수 셰이더 - 사용 x
-: 표면 셰이더 - surface shader 
-: 버텍스 / 프래그먼트 셰이더 - 6.0
+ShaderLab 으로 작성할수 있는 셰이더 프로그램
+: 고정 함수 셰이더 - x
+: 표면 셰이더 - surface shader
+: 버텍스/프래그먼트 셰이더 : 6.0 
 
+Shader "Custom/MyShader"    //셰이더 경로 및 셰이더 이름 정의
+{
+    //인스펙터창에서 입력 받는 값 정의
+    Properties
+    {
+        
+    }
+    //고사양
+    SubShader
+    {
+        Pass
+        {
+
+        }
+        Pass
+        {
+
+        }
+    }
+    //중사양
+    SubShader
+    {
+        Pass
+        {
+
+        }
+        Pass
+        {
+
+        }
+    }
+    //저사양
+    SubShader
+    {
+        Pass
+        {
+
+        }
+        Pass
+        {
+
+        }
+    }
+    Fallback "Diffuse"
+}
 */

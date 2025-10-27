@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MyDefence
 {
@@ -24,9 +25,9 @@ namespace MyDefence
 
         //체력
         private float health;
-
+        //체력 초기값
         [SerializeField]
-        private float startHealth = 100f;    //체력 초기값
+        private float startHealth = 100f; 
 
         //죽음 체크
         private bool isDeath = false;
@@ -37,6 +38,9 @@ namespace MyDefence
         //죽음 보상
         [SerializeField]
         private int rewardMoney = 50;
+
+        //UI
+        public Image hpBarImage;
 
         #endregion
 
@@ -91,6 +95,9 @@ namespace MyDefence
         {
             health -= damage;
             //Debug.Log($"Enemy Health: {health}");
+
+            //UI 적용
+            hpBarImage.fillAmount = health / startHealth;
             
             //죽음 체크
             if (health <= 0 && isDeath == false) // && isDeath == false <- 두번 보상받는 것 방지용
