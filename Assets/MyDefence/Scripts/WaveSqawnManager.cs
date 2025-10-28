@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace MyDefence
@@ -10,9 +9,16 @@ namespace MyDefence
         /// <summary>
         /// 적 스폰 및 웨이브를 관리하는 클래스
         /// </summary>
-        
+
 
         #region Variable
+
+        //현재 살아있는 적의 수
+        public static int enemyAlive = 0;
+
+        //웨이브 데이터 셋팅 : 프리팹, 생성 갯수, 생성 딜레이 
+        public Wave[] waves;        //waves[0] ~ waves[4]
+
         //적 프리팹 오브젝트 - 원본
         public GameObject enermyPrefab;
 
@@ -25,9 +31,15 @@ namespace MyDefence
         //웨이브 카운트
         private int waveCount = 0;
 
-        //UI - TMP를 지휘하는 인스턴스 생성 (Text)
-        public TextMeshProUGUI countdownText;
+        //이번 웨이브에 생성되는 적의 수
+        private int enemyCount = 0;
 
+        //UI - TMP를 지휘하는 인스턴스 생성 (Text)
+        //public TextMeshProUGUI countdownText;
+        public GameObject startButton;
+        public GameObject waveCountUI;
+
+        public TextMeshProUGUI waveCountText;
         #endregion
 
         #region Unity Event Method
@@ -38,13 +50,13 @@ namespace MyDefence
 
         private void Update()
         {
-
+            /*
             //스폰 (5초) 타이머
             countdown += Time.deltaTime;
             if(countdown >= spawnTimer )
             {
                 //타이머 기능 실행
-                StartCoroutine(SpawnWave());
+                WaveSpawn();
 
                 //타이머 초기화
                 countdown = 0f;     //~마다 라는 표현이 있다면 초기화를 반드시 해야한다
@@ -59,39 +71,88 @@ namespace MyDefence
 
             //countdownText.text = countdown.ToString();      //float형에서 string으로 변환
 
-
-
+            */
+            if (enemyAlive <= 0)
+            {
+                if (startButton.activeSelf == false)
+                {
+                    WaveReady();
+                }
+            }
+            else
+            {
+                waveCountText.text = enemyAlive.ToString() + " / " + enemyCount.ToString();
+            }
         }
         #endregion
 
         #region Custom Method
+        private void WaveSpawn()
+        { 
+            StartCoroutine(SpawnWave());
+        }
+
         //enermy스폰웨이브
         IEnumerator SpawnWave()
         {
+            //waves[0], waves[1], waves[2], waves[3], waves[4]
+            //웨이브 생성 데이터
+            Wave wave = waves[waveCount];
+
             waveCount++;
 
             //웨이브 카운트 (웨이브에 따라서 라운드가 1씩 증가한다)
             PlayerStats.Rounds++;
 
-            //0.5초 지연하여 enemy 스폰
-            for (int i = 0; i < waveCount; i++)
+            enemyCount = wave.count;
+            enemyAlive = enemyCount;
+
+            //wave 데이터로 생성
+            for (int i = 0; i < wave.count; i++)
             {
-                EnermySpawn();
-                yield return new WaitForSeconds(0.5f);
+                EnermySpawn(wave.prefab);
+                yield return new WaitForSeconds(wave.delayTime);
             }
 
             //Debug.Log($"웨이브 카운트: {waveCount}");
         }
-        
-        
+
+
 
         #endregion
 
         #region Custom Method
-        void EnermySpawn()
+        void EnermySpawn(GameObject prefab)
         {
             //시작점 위치(this.transform)에 enermy 1개 생성
-            Instantiate(enermyPrefab, this.transform.position, Quaternion.identity);
+            Instantiate(prefab, this.transform.position, Quaternion.identity);
+        }
+
+        //WaveStart 버큰 클릭시 호출
+        public void WaveStart()
+        {
+            //UI 세팅
+            startButton.SetActive(false);
+            waveCountUI.SetActive(true);
+
+            //웨이브 시작
+            WaveSpawn();
+        }
+
+        //웨이브 대기
+        private void WaveReady()
+        {
+            //마지막 웨이브가 끝났는지 체크
+            if (waveCount >= waves.Length)
+            {
+                Debug.Log("Level Clear");
+                this.enabled = false;
+                return;
+            }
+
+            //UI 세팅
+            startButton.SetActive(true);
+            waveCountUI.SetActive(false);
         }
 
         #endregion

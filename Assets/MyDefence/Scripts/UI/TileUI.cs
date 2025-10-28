@@ -65,7 +65,7 @@ namespace MyDefence
         //업그레이드 버튼을 선택했습니다
         public void UpgradeTower()
         {
-            Debug.Log("설치된 타워를 업그레이드 합니다");
+            //Debug.Log("설치된 타워를 업그레이드 합니다");
             targetTile.UpgradeTower();  
         }
 

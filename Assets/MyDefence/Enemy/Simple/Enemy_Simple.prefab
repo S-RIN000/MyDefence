@@ -666,7 +666,7 @@ GameObject:
   - component: {fileID: 3554531083910756459}
   - component: {fileID: 6845565832394507159}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy_Simple
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -707,7 +707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 10
+  speed: 4
   startSpeed: 4
   startHealth: 100
   deathEffectPrefab: {fileID: 3054693109307119754, guid: f9e0740dd815f104e867abd601afc38e, type: 3}

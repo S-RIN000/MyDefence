@@ -6,6 +6,8 @@ namespace MyDefence
     public class MainMenu : MonoBehaviour
     {
         #region Variables
+        public SceneFader fader;
+
         [SerializeField]
         private string loadToScene = "PlayScene";
         #endregion
@@ -17,10 +19,10 @@ namespace MyDefence
         //플레이 버튼 클릭시 호출
         public void Play()
         {
-            Debug.Log("Go to PlayScene");
+            //Debug.Log("Go to PlayScene");
 
             //자기 자신이 아니라 다른 씬으로 변경
-            SceneManager.LoadScene(loadToScene);    
+            fader.FadeTo(loadToScene);    
         }
 
         //quit버튼 클릭시 호출

@@ -85,6 +85,9 @@ namespace MyDefence
             //생명 사용
             PlayerStats.UseLives(1);
 
+            //살아있는 적의 수를 줄인다
+            WaveSqawnManager.enemyAlive--;
+
             //Enemy Kill
             Destroy(this.gameObject);
             //Debug.Log("도착했다");
@@ -113,11 +116,14 @@ namespace MyDefence
             //죽음 체크     <- 두번 보상받는 것 방지용
             isDeath = true;
 
-            Debug.Log("Enemy kill");
+            //Debug.Log("Enemy kill");
             //죽음 처리 (all)
             //effect 효과 (vfx, sfx...)
             GameObject effectGo = Instantiate(deathEffectPrefab, this.transform.position, Quaternion.identity);
             Destroy(effectGo, 2f);
+
+            //살아있는 적의 수를 줄인다
+            WaveSqawnManager.enemyAlive--;
 
             //보상 처리 (골드, 경험치, 아이템...)
             //enemy를 해치울때마다 50씩 리워드

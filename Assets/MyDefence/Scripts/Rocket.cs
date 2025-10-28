@@ -54,6 +54,7 @@ namespace MyDefence
                 //enemy 찾기 - tag 검사
                 if (collider.tag == "Enemy")
                 {
+                    
                     Damage(collider.transform);
                 }
 

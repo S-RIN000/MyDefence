@@ -77,6 +77,7 @@ namespace MyDefence
             float vValue = Input.GetAxisRaw("Vertical") * Time.deltaTime * moveSpeed;
             transform.Translate(hValue, 0, vValue, Space.World);
 
+            /*
             //마우스를 스크린 상하좌우 끝 부분 (기준 폭 : 10)에 가져가면 맵을 스크롤 시킨다 
             //스크린상에서 마우스 위치값 가져오기
             float mouseX = Input.mousePosition.x;
@@ -105,7 +106,7 @@ namespace MyDefence
             {
                 this.transform.Translate(Vector3.right * Time.deltaTime * moveSpeed, Space.World);
             }
-
+            */
 
             //마우스 스크롤값을 입력받아 줌인, 줌아웃 (높이 조절) 기능 구현
             float scroll = Input.GetAxis("Mouse ScrollWheel");

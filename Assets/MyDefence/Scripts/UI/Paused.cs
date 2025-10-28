@@ -72,13 +72,6 @@ namespace MyDefence
             Time.timeScale = 1f;
         }
 
-        //X 버튼 누르면 호출
-        public void X()
-        {
-          
-       
-        }
-
         #endregion
     }
 }

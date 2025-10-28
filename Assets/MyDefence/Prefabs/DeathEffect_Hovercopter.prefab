@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8184441279592525451}
   - component: {fileID: 988288424306373597}
   m_Layer: 0
-  m_Name: DeathEffect
+  m_Name: DeathEffect_Hovercopter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4838,7 +4838,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c886b1c98724ead49978e798573df992, type: 2}
+  - {fileID: 2100000, guid: 0c21ab8e43854d14d961d99cdf752876, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -239,6 +239,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 980167133524727764, guid: 31323c7d95ef8844fa7985d7245c9663, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1338307878991732865, guid: 31323c7d95ef8844fa7985d7245c9663, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -572,6 +576,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1011066803 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 395793203061209341, guid: 31323c7d95ef8844fa7985d7245c9663, type: 3}
+  m_PrefabInstance: {fileID: 612999401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ede4ac691965df14f856d5ccceed9615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1047658121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,6 +1055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5878af195be51bc4eaa57763920b3a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fader: {fileID: 1011066803}
   loadToScene: MainMenu
   showTimer: 3
   anyKeyUI: {fileID: 834503083}
