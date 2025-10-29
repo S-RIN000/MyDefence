@@ -10,7 +10,7 @@ namespace MyDefence
 
         #region Variable
         //WayPoint(적이 지나가는 길의 분기점)들의 오브젝트를 저장하는 배열
-        public static Transform[] points;      //enermy에서 접근해야 하기때문에 접근제한자가 public 
+        public static Transform[] points;      //enemy에서 접근해야 하기때문에 접근제한자가 public 
         #endregion
 
         #region Unity Event Method

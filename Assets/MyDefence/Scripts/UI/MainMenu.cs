@@ -28,6 +28,10 @@ namespace MyDefence
         //quit버튼 클릭시 호출
         public void Quit()
         {
+            //Cheating
+            //저장된 데이터 삭제
+            PlayerPrefs.DeleteAll();
+
             Debug.Log("Game Quit!!");
 
             //어플리케이션 종료 명령
