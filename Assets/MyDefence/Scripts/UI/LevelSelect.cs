@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 namespace MyDefence
 {
+    /// <summary>
+    /// 레벨 셀렉트 씬을 관리하는 클래스
+    /// </summary>
     public class LevelSelect : MonoBehaviour
     {
         #region Variables
@@ -33,7 +36,7 @@ namespace MyDefence
             //저장된 데이터 가져오기
             clearLevel = PlayerPrefs.GetInt("ClearLevel", 0);
 
-            clearLevel = 0;
+            //clearLevel = 0;
             //Debug.Log($"clear level : {clearLevel}");
 
             //클리어 레벨 : ex) 0 -> 1레벨까지 오픈, 1 -> 2레벨까지 오픈

@@ -28,6 +28,9 @@ namespace MyDefence
         #region Unity Event Method
         private void Update()       //키 입력은 업데이트에서 실행
         {
+            //게임오버 체크
+            if (GameManager.IsGameOver)
+                return;
             
             //esc key를 한번 누르면 카메라 이동을 못하게막는다 (isCannotMove false -> true)
             //esc key를 한번 누르면 카메라 이동을 하게 한다 (isCannotMove true -> false)

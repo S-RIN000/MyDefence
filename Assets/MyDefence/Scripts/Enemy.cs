@@ -23,6 +23,9 @@ namespace MyDefence
         [SerializeField]
         private float startSpeed = 4f;
 
+        //이동 WayPoint 인덱스
+        private int wayPointIndex = 0;
+
         //체력
         private float health;
         //체력 초기값
@@ -51,8 +54,10 @@ namespace MyDefence
             //초기화 
             health = startHealth;
             speed = startSpeed;
+            wayPointIndex = 0;
 
-            target = WayPoints.points[0];
+            //이동 목표지점 0번으로 설정
+            target = WayPoints.points[wayPointIndex];
 
         }
 
@@ -68,9 +73,10 @@ namespace MyDefence
             //도착판정 - public static float Distance 이용
             //타겟과 Enermy의 거리를 구해서 일정거리 안에 들어오면 도착이라고 판정한다
             float distance = Vector3.Distance(target.position, this.transform.position);
-            if (distance <= 0.5f)
+            if (distance <= 0.1f)
             {
-                Arrive();
+                //Arrive();
+                SetNextTarget();
             }
             
             //이동 속도를 초기 속도로 복원
@@ -79,6 +85,22 @@ namespace MyDefence
         #endregion
 
         #region Custom Method
+        //다음 타겟 설정
+        private void SetNextTarget()
+        {
+            //종점 체크
+            if (wayPointIndex >= WayPoints.points.Length - 1)
+            {
+                Debug.Log("종점 도착");
+                Arrive();
+                return;
+            }
+
+            //Debug.Log("다음 타겟 설정: wayPointIndex++");
+            wayPointIndex++;
+            target = WayPoints.points[wayPointIndex];
+        }
+
         //종점 도착
         private void Arrive()
         {
