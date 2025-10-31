@@ -6,7 +6,7 @@ namespace Sample
     /// <summary>
     /// IDamageable 을 상속받는 몬스터 클래스
     /// </summary>
-    public class Skeleton : MonoBehaviour, IDamageable
+    public class Skeleton : MonoBehaviour
     {
         #region Variables
         //체력
@@ -46,6 +46,11 @@ namespace Sample
 
             //
             Destroy(gameObject);
+        }
+
+        public void slow(float rate)
+        {
+
         }
 
         #endregion

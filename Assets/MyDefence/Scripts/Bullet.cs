@@ -84,11 +84,28 @@ namespace MyDefence
             //Destroy(_target.gameObject);
 
             //_target에게 데미지를 준다 (attackDamage만큼)
+            /*
             Enemy enemy =_target.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(attackDamage);
             }
+
+            Enemy_N enemy_N = _target.GetComponent<Enemy_N>();
+            if (enemy_N != null)
+            {
+                enemy_N.TakeDamage(attackDamage);
+            }
+            */
+
+            //인터페이스를 상속받아서 사용하면 enemy를 만들때마다 위처럼 하나하나 추가하지 않고 이렇게 간결하게 만들 수 있다
+            IDamageable damageable = _target.GetComponent<IDamageable>();
+            if(damageable != null)
+            {
+                damageable.TakeDamage(attackDamage);
+            }
+
+
         }
 
         #endregion 

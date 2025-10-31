@@ -83,14 +83,16 @@ namespace MyDefence
         {
             //데미지 주기
             float frameDamage = Time.deltaTime * laserDamage;   //프레임당 데미지
-            Enemy enemy = target.GetComponent<Enemy>();
-            if(enemy != null)
+
+            //Enemy enemy = target.GetComponent<Enemy>();
+            IDamageable damageable = target.GetComponent<IDamageable>();
+            if(damageable != null)
             {
                 //데미지 주기
-                enemy.TakeDamage(frameDamage);
+                damageable.TakeDamage(frameDamage);
 
                 //이동속도 감속 (0.4f)
-                enemy.Slow(slowRate);
+                damageable.Slow(slowRate);
             }
 
             // 1초에 한번씩 데미지 ↓    ↑ 누적 데미지 (ex. 0.5초에는 15데미지)

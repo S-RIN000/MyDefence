@@ -1,4 +1,4 @@
-using Unity.Mathematics;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,13 +7,16 @@ namespace MyDefence
     /// <summary>
     /// Enermy를 관리하는 클래스
     /// </summary>
-    public class Enemy : MonoBehaviour, IDamageable
+    public class Enemy_N : MonoBehaviour, IDamageable
     {
-        #region 필드 선언부
+        #region Variables
         //이동 목표 지점 변수 선언 및 초기화
         //private Vector3 targetPosition = new Vector3(-2f, 1f, -17f);
 
-        //이동 목표 위치를 가지고 있는 오브젝트 
+        //이동 목표 노드
+        private Node nextNode;
+
+        //이동 목표 위치를 가지고 있는 오브젝트, 노드를 가지고 있는 오브젝트 
         public Transform target;
 
         //이동 속도를 저장하는 변수를 선언
@@ -61,7 +64,8 @@ namespace MyDefence
             wayPointIndex = 0;
 
             //이동 목표지점 0번으로 설정
-            target = WayPoints.points[wayPointIndex];
+            //target = WayPoints.points[wayPointIndex];
+
 
         }
 
@@ -73,7 +77,7 @@ namespace MyDefence
             Vector3 dir = target.position - this.transform.position;
 
             //방향 전환
-            if (dir !=  Vector3.zero)
+            if (dir != Vector3.zero)
             {
                 //타겟 방향을 바라보는 회전
                 Quaternion targetRotation = Quaternion.LookRotation(dir);
@@ -89,6 +93,7 @@ namespace MyDefence
             float distance = Vector3.Distance(target.position, this.transform.position);
             if (distance <= 0.1f)
             {
+
                 //Arrive();
                 SetNextTarget();
             }
@@ -99,20 +104,27 @@ namespace MyDefence
         #endregion
 
         #region Custom Method
+        //다음 Node 설정
+        public void SetNextNode(Node next)
+        {
+            //nextNode :나 다음에 이동할 노드(next)를 갖고있다
+            nextNode = next;
+            target = nextNode.transform;    //next Node를 갖고 있는 놈이 타겟이 됨
+        }
+
         //다음 타겟 설정
         private void SetNextTarget()
         {
+            //다음 노드로 세팅
+            Node next = nextNode.GetNextNode();
             //종점 체크
-            if (wayPointIndex >= WayPoints.points.Length - 1)
+            if (next == null)
             {
-                Debug.Log("종점 도착");
                 Arrive();
                 return;
             }
-
-            //Debug.Log("다음 타겟 설정: wayPointIndex++");
-            wayPointIndex++;
-            target = WayPoints.points[wayPointIndex];
+            SetNextNode(next);
+           
         }
 
         //종점 도착

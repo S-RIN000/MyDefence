@@ -1,5 +1,3 @@
-using System.Xml.Serialization;
-using Unity.Profiling.Editor;
 using UnityEngine;
 
 namespace MyDefence
