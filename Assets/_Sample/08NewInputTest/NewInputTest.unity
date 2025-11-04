@@ -242,7 +242,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -424,9 +425,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8585a5c5eee39d74db1bfcd9e0663572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enermyPrefab: {fileID: 5348445088692699749, guid: 146486458582a4547960e0f81d046d6c, type: 3}
+  waves: []
+  next: {fileID: 0}
   spawnTimer: 5
-  countdownText: {fileID: 122988761}
+  startButton: {fileID: 0}
+  waveCountUI: {fileID: 0}
+  waveCountText: {fileID: 0}
 --- !u!1 &311542190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,7 +1811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b8597aa07370e42b3deb405d52cdf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  machineGunPrefab: {fileID: 1758473230991500749, guid: 578e3bbc97dd0b34091772701a62b752, type: 3}
+  tileUI: {fileID: 0}
 --- !u!4 &2118848396
 Transform:
   m_ObjectHideFlags: 0
